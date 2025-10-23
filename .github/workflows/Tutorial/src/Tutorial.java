@@ -17,7 +17,7 @@ public class Tutorial {
     private JButton home, binaryButton, hexButton, convertButton;
     private ImageIcon[] images;
 
-    public Tutorial(JFrame gameFrame) {
+    public Tutorial() {
         initializeFrame();
 
         images = new ImageIcon[3];
@@ -33,7 +33,7 @@ public class Tutorial {
 
         buttonPanel = new JPanel();
         buttonPanel.setPreferredSize(new Dimension(1200,200));
-        initializeButtons(gameFrame);
+        initializeButtons();
         buttonPanel.add(home);
         buttonPanel.add(binaryButton);
         buttonPanel.add(hexButton);
@@ -45,15 +45,9 @@ public class Tutorial {
         frame.setVisible(true);
     }
 
-    private void close(JFrame gameFrame) {
-        frame.dispose();
-        gameFrame.toFront();
-
-    }
-
-    private void initializeButtons(JFrame gameFrame) {
+    private void initializeButtons() {
         home = new JButton("Home");
-        home.addActionListener(e->close(gameFrame));
+        home.addActionListener(e->frame.dispose());
         home.setPreferredSize(new Dimension(250,150));
         home.setFont(new Font("Impact", Font.PLAIN, 25));
         home.setBackground(Color.WHITE);
